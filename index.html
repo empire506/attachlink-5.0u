@@ -13,7 +13,7 @@
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       <nav id="navbar">
         <a href="index.html">Home</a>
-        <a href="company-dashboard.html">Company Dashboard</a>
+        <a href="./company-dashboard.html">Company Dashboard</a>
         <a href="opportunities.html">Opportunities</a>
       </nav>
     </div>
@@ -21,81 +21,52 @@
   </header>
 
   <main>
-    <!-- STUDENT FORM SECTION -->
-    <section class="form-section" aria-labelledby="student-heading">
-      <div style="flex:1;">
-        <h2 id="student-heading">Student Application</h2>
+    <!-- STUDENT FORM -->
+    <section class="form-section">
+      <form id="studentProfileForm" autocomplete="off">
+        <h2>Student Application</h2>
+        <label>Name:
+          <input type="text" name="name" required />
+        </label>
+        <label>Email:
+          <input type="email" name="email" required />
+        </label>
+        <label>Phone:
+          <input type="tel" name="phone" required />
+        </label>
+        <label>Skill:
+          <input type="text" name="skill" placeholder="e.g. Web Development" required />
+        </label>
+        <button type="submit">Save Profile</button>
+        <button type="button" onclick="goToOpportunities()">Browse Opportunities</button>
+      </form>
 
-        <form id="studentProfileForm" autocomplete="off">
-          <label>Full Name:
-            <input type="text" name="name" required />
-          </label>
-
-          <label>Email:
-            <input type="email" name="email" required />
-          </label>
-
-          <label>Phone:
-            <input type="tel" name="phone" required />
-          </label>
-
-          <label>Your Skill (e.g. Web Development, Marketing, Cyber Security):
-            <input type="text" name="skill" required placeholder="comma-separated or phrase (e.g. 'web development')" />
-          </label>
-
-          <label>Upload CV:
-            <input type="file" name="cv" accept=".pdf,.doc,.docx" />
-          </label>
-
-          <button type="submit">Save Profile</button>
-        </form>
-      </div>
-
-      <div style="flex:1; text-align:center;">
-        <img src="images/mark 2-harlynking-64grc3AMrH8-unsplash.jpg" alt="Student filling internship form" class="form-img" />
-      </div>
+      <img src="./images/annie-spratt-QckxruozjRg-unsplash.jpg" alt="Students applying" class="form-img" />
     </section>
 
-    <!-- COMPANY REGISTRATION SECTION -->
-    <section class="form-section" aria-labelledby="company-heading">
-      <div style="flex:1;">
-        <h2 id="company-heading">Company Registration</h2>
+    <!-- COMPANY FORM -->
+    <section class="form-section">
+      <form id="companyProfileForm" autocomplete="off">
+        <h2>Company Registration</h2>
+        <label>Company Name:
+          <input type="text" name="companyName" required />
+        </label>
+        <label>Email:
+          <input type="email" name="email" required />
+        </label>
+        <label>Phone:
+          <input type="tel" name="phone" required />
+        </label>
+        <label>Required Skills:
+          <input type="text" name="skills" placeholder="e.g. Cyber Security, Design" required />
+        </label>
+        <label>Location:
+          <input type="text" name="location" required />
+        </label>
+        <button type="submit">Register Company</button>
+      </form>
 
-        <form id="companyProfileForm" autocomplete="off">
-          <label>Company Name:
-            <input type="text" name="companyName" required />
-          </label>
-
-          <label>Contact Email:
-            <input type="email" name="email" required />
-          </label>
-
-          <label>Phone:
-            <input type="tel" name="phone" required />
-          </label>
-
-          <label>Skills you hire for (comma separated):
-            <input type="text" name="skills" required placeholder="e.g. Web Development, Cyber Security" />
-          </label>
-
-          <label>Location:
-            <input type="text" name="location" required />
-          </label>
-
-          <button type="submit">Save & Go to Dashboard</button>
-        </form>
-      </div>
-
-      <div style="flex:1; text-align:center;">
-        <img src="images/mark 2-harlynking-64grc3AMrH8-unsplash.jpg" alt="Company registration form" class="form-img" />
-      </div>
-    </section>
-
-    <!-- HERO / CTA -->
-    <section class="hero">
-      <h2>Find Your Perfect Attachment</h2>
-      <p>Discover internships, apply online, and build your future — all in one place.</p>
-      <button onclick="goToOpportunities()">Browse Opportunities</button>
+      <img src="./images/mark 2-harlynking-64grc3AMrH8-unsplash.jpg" alt="Company registering" class="form-img" />
     </section>
   </main>
 
