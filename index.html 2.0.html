@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AttachLink – Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>AttachLink</h1>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="company-dashboard.html">Company Dashboard</a>
+        <a href="opportunities.html">Opportunities</a>
+      </nav>
+    </div>
+    <p>Connecting Students and Companies — Online and Effortlessly</p>
+  </header>
+
+  <main>
+    <!-- STUDENT FORM SECTION -->
+    <section class="form-section" aria-labelledby="student-heading">
+      <div style="flex:1;">
+        <h2 id="student-heading">Student Application</h2>
+
+        <form id="studentProfileForm" autocomplete="off">
+          <label>Full Name:
+            <input type="text" name="name" required />
+          </label>
+
+          <label>Email:
+            <input type="email" name="email" required />
+          </label>
+
+          <label>Phone:
+            <input type="tel" name="phone" required />
+          </label>
+
+          <label>Your Skill (e.g. Web Development, Marketing, Cyber Security):
+            <input type="text" name="skill" required placeholder="comma-separated or phrase (e.g. 'web development')" />
+          </label>
+
+          <label>Upload CV:
+            <input type="file" name="cv" accept=".pdf,.doc,.docx" />
+          </label>
+
+          <button type="submit">Save Profile</button>
+        </form>
+      </div>
+
+      <div style="flex:1; text-align:center;">
+        <img src="images/mark 2-harlynking-64grc3AMrH8-unsplash.jpg" alt="Student filling internship form" class="form-img" />
+      </div>
+    </section>
+
+    <!-- COMPANY REGISTRATION SECTION -->
+    <section class="form-section" aria-labelledby="company-heading">
+      <div style="flex:1;">
+        <h2 id="company-heading">Company Registration</h2>
+
+        <form id="companyProfileForm" autocomplete="off">
+          <label>Company Name:
+            <input type="text" name="companyName" required />
+          </label>
+
+          <label>Contact Email:
+            <input type="email" name="email" required />
+          </label>
+
+          <label>Phone:
+            <input type="tel" name="phone" required />
+          </label>
+
+          <label>Skills you hire for (comma separated):
+            <input type="text" name="skills" required placeholder="e.g. Web Development, Cyber Security" />
+          </label>
+
+          <label>Location:
+            <input type="text" name="location" required />
+          </label>
+
+          <button type="submit">Save & Go to Dashboard</button>
+        </form>
+      </div>
+
+      <div style="flex:1; text-align:center;">" />
+        <img src="images/mark 2-harlynking-64grc3AMrH8-unsplash.jpg" class="form-img" />
+
+    <!-- HERO / CTA -->
+    <section class="hero">
+      <h2>Find Your Perfect Attachment</h2>
+      <p>Discover internships, apply online, and build your future — all in one place.</p>
+      <button onclick="goToOpportunities()">Browse Opportunities</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AttachLink. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
