@@ -10,11 +10,10 @@
   <header>
     <div class="header-container">
       <h1>Company Dashboard</h1>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-      <nav id="navbar">
-        <a href="index.html">Home</a>
-        <a href="opportunities.html">Opportunities</a>
-      </nav>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <button onclick="toggleDarkMode()">Dark/Light Mode</button>
+        <button id="logoutBtn">Logout</button>
+      </div>
     </div>
     <p>Post and manage your internship opportunities</p>
   </header>
@@ -61,5 +60,13 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Logout handling
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("companyProfile");
+      window.location.href = "index.html";
+    });
+  </script>
 </body>
 </html>

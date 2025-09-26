@@ -12,7 +12,7 @@
       <h1>AttachLink</h1>
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       <nav id="navbar">
-        <a href="index.html">Home</a>
+        <a href="index2.html">Home</a>
         <a href="company-dashboard.html">Company Dashboard</a>
         <a href="opportunities.html">Opportunities</a>
       </nav>
@@ -21,81 +21,63 @@
   </header>
 
   <main>
-    <!-- STUDENT FORM SECTION -->
+    <!-- STUDENT FORM -->
     <section class="form-section" aria-labelledby="student-heading">
       <div style="flex:1;">
         <h2 id="student-heading">Student Application</h2>
-
         <form id="studentProfileForm" autocomplete="off">
           <label>Full Name:
             <input type="text" name="name" required />
           </label>
-
           <label>Email:
             <input type="email" name="email" required />
           </label>
-
           <label>Phone:
             <input type="tel" name="phone" required />
           </label>
-
-          <label>Your Skill (e.g. Web Development, Marketing, Cyber Security):
-            <input type="text" name="skill" required placeholder="comma-separated or phrase (e.g. 'web development')" />
+          <label>Your Skill:
+            <input type="text" name="skill" required placeholder="e.g. Web Development" />
           </label>
-
-          <label>Upload CV:
-            <input type="file" name="cv" accept=".pdf,.doc,.docx" />
+          <label>Password:
+            <input type="password" name="password" required placeholder="Set a password"/>
           </label>
-
           <button type="submit">Save Profile</button>
         </form>
       </div>
-
       <div style="flex:1; text-align:center;">
         <img src="./images/redd-francisco-5U_28ojjgms-unsplash.jpg" alt="Student filling internship form" class="form-img" />
       </div>
     </section>
 
-    <!-- COMPANY REGISTRATION SECTION -->
+    <!-- COMPANY FORM -->
     <section class="form-section" aria-labelledby="company-heading">
       <div style="flex:1;">
         <h2 id="company-heading">Company Registration</h2>
-
         <form id="companyProfileForm" autocomplete="off">
           <label>Company Name:
             <input type="text" name="companyName" required />
           </label>
-
-          <label>Contact Email:
+          <label>Email:
             <input type="email" name="email" required />
           </label>
-
           <label>Phone:
             <input type="tel" name="phone" required />
           </label>
-
-          <label>Skills you hire for (comma separated):
+          <label>Skills you hire for:
             <input type="text" name="skills" required placeholder="e.g. Web Development, Cyber Security" />
           </label>
-
           <label>Location:
             <input type="text" name="location" required />
           </label>
-
+          <label>Password:
+            <input type="password" name="password" required placeholder="Set a password"/>
+          </label>
           <button type="submit">Save & Go to Dashboard</button>
         </form>
       </div>
-
       <div style="flex:1; text-align:center;">
         <img src="./images/redd-francisco-5U_28ojjgms-unsplash.jpg" alt="Company registration form" class="form-img" />
       </div>
-    </section>
-
-    <!-- HERO / CTA -->
-    <section class="hero">
-      <h2>Find Your Perfect Attachment</h2>
-      <p>Discover internships, apply online, and build your future — all in one place.</p>
-      <button onclick="goToOpportunities()">Browse Opportunities</button>
     </section>
   </main>
 

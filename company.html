@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AttachLink – Company Profile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Company Registration</h1>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="company-dashboard.html">Company Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Register Your Company</h2>
+      <p>Fill in your company details to start posting internship opportunities.</p>
+      
+      <form id="companyForm" onsubmit="return submitCompanyForm(event)">
+        <label for="companyName">Company Name:</label>
+        <input type="text" id="companyName" name="companyName" required />
+
+        <label for="email">Contact Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Contact Phone:</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="skills">Required Skills (select multiple):</label>
+        <select id="skills" name="skills" multiple required>
+          <option value="Web Development">Web Development</option>
+          <option value="Data Analysis">Data Analysis</option>
+          <option value="UI/UX Design">UI/UX Design</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+        </select>
+
+        <label for="duration">Internship Duration:</label>
+        <input type="text" id="duration" name="duration" required placeholder="e.g., 3 months" />
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required />
+
+        <label for="password">Set a Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </section>
+
+    <div style="text-align:center;">
+      <img src="./images/company-register.jpg" alt="Company team illustration" class="form-img" />
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AttachLink. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

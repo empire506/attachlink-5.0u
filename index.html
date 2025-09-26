@@ -7,73 +7,59 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <h1>AttachLink</h1>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-      <nav id="navbar">
-        <a href="index.html">Home</a>
-        <a href="./company-dashboard.html">Company Dashboard</a>
-        <a href="opportunities.html">Opportunities</a>
-      </nav>
-    </div>
-    <p>Connecting Students and Companies — Online and Effortlessly</p>
-  </header>
+<header>
+  <div class="header-container">
+    <h1>AttachLink</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav id="navbar">
+      <a href="index.html">Home</a>
+      <a href="company-dashboard.html">Company Dashboard</a>
+      <a href="opportunities.html">Opportunities</a>
+    </nav>
+  </div>
+  <p>Connecting Students and Companies — Online and Effortlessly</p>
+</header>
 
-  <main>
-    <!-- STUDENT FORM -->
-    <section class="form-section">
+<main>
+  <!-- STUDENT FORM -->
+  <section class="form-section">
+    <div style="flex:1;">
+      <h2>Student Application</h2>
       <form id="studentProfileForm" autocomplete="off">
-        <h2>Student Application</h2>
-        <label>Name:
-          <input type="text" name="name" required />
-        </label>
-        <label>Email:
-          <input type="email" name="email" required />
-        </label>
-        <label>Phone:
-          <input type="tel" name="phone" required />
-        </label>
-        <label>Skill:
-          <input type="text" name="skill" placeholder="e.g. Web Development" required />
-        </label>
+        <label>Full Name:<input type="text" name="name" required/></label>
+        <label>Email:<input type="email" name="email" required/></label>
+        <label>Phone:<input type="tel" name="phone" required/></label>
+        <label>Your Skill:<input type="text" name="skill" placeholder="e.g. Web Development" required/></label>
         <button type="submit">Save Profile</button>
-        <button type="button" onclick="goToOpportunities()">Browse Opportunities</button>
       </form>
+    </div>
+    <div style="flex:1; text-align:center;">
+      <img src="./images/redd-francisco-5U_28ojjgms-unsplash.jpg" alt="Student applying" class="form-img" />
+    </div>
+  </section>
 
-      <img src="./images/annie-spratt-QckxruozjRg-unsplash.jpg" alt="Students applying" class="form-img" />
-    </section>
-
-    <!-- COMPANY FORM -->
-    <section class="form-section">
+  <!-- COMPANY FORM -->
+  <section class="form-section">
+    <div style="flex:1;">
+      <h2>Company Registration</h2>
       <form id="companyProfileForm" autocomplete="off">
-        <h2>Company Registration</h2>
-        <label>Company Name:
-          <input type="text" name="companyName" required />
-        </label>
-        <label>Email:
-          <input type="email" name="email" required />
-        </label>
-        <label>Phone:
-          <input type="tel" name="phone" required />
-        </label>
-        <label>Required Skills:
-          <input type="text" name="skills" placeholder="e.g. Cyber Security, Design" required />
-        </label>
-        <label>Location:
-          <input type="text" name="location" required />
-        </label>
-        <button type="submit">Register Company</button>
+        <label>Company Name:<input type="text" name="companyName" required/></label>
+        <label>Email:<input type="email" name="email" required/></label>
+        <label>Phone:<input type="tel" name="phone" required/></label>
+        <label>Required Skills:<input type="text" name="skills" placeholder="e.g. Web Development" required/></label>
+        <label>Location:<input type="text" name="location" required/></label>
+        <button type="submit">Save & Go to Dashboard</button>
       </form>
-
+    </div>
+    <div style="flex:1; text-align:center;">
       <img src="./images/mark 2-harlynking-64grc3AMrH8-unsplash.jpg" alt="Company registering" class="form-img" />
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
 
-  <footer>
-    <p>&copy; 2025 AttachLink. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
+<footer>
+  <p>&copy; 2025 AttachLink. All rights reserved.</p>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AttachLink – Student Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="header-container">
+    <div>
+      <h1>Student Portal</h1>
+      <p id="studentName"></p>
+      <p id="studentEmail"></p>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button onclick="toggleDarkMode()">Dark/Light Mode</button>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="opportunities-list" id="opportunitiesList">
+    <h2>Available Opportunities</h2>
+  </section>
+
+  <section class="dashboard" id="appliedList">
+    <h2>My Applied Opportunities</h2>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 AttachLink. All rights reserved.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
