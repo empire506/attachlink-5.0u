@@ -1,0 +1,24 @@
+// routes/pages.js
+const express = require('express');
+const router = express.Router();
+const path = require('path');
+
+// Serve dashboard as homepage
+router.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'student-portal.html'));
+});
+
+// Other pages (they all load the same HTML for demo — you can customize later)
+router.get('/browse-jobs', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'student-portal.html'));
+});
+
+router.get('/my-applications', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'student-portal.html'));
+});
+
+router.get('/profile', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public', 'student-portal.html'));
+});
+
+module.exports = router;

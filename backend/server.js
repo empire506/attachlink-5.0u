@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import companyRoutes from "./routes/company-route.js";
 import studentRoutes from "./routes/student-route.js";
+import opportunityRoutes from "./routes/opportunity-route.js";
 
 dotenv.config();
 const app = express();
@@ -28,3 +29,22 @@ mongoose.connect(process.env.MONGO_URI)
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+// Serve static files (HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// API routes
+app.use('/api', require('./routes/api'));
+
+// Page routes (for navigation)
+app.use('/', require('./routes/pages'));
+
+// Fallback to index.html for unknown routes (optional for SPA)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`✅ Server running at http://localhost:${PORT}`);
+});

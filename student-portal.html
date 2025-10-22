@@ -1,39 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AttachLink – Student Portal</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttachLink - Student Dashboard</title>
+     <link rel="stylesheet" href="style.css" />
+  </head>
 <body>
-<header>
-  <div class="header-container">
-    <div>
-      <h1>Student Portal</h1>
-      <p id="studentName"></p>
-      <p id="studentEmail"></p>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                🎓 AttachLink
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">Dashboard</a>
+                <a href="#" class="jobs.html">Jobs</a>
+                <a href="#" class="nav-link">My Applications</a>
+                <a href="#" class="nav-link">Profile</a>
+            </div>
+            <div class="user-actions">
+                <div class="theme-toggle">🌙</div>
+                <button class="btn btn-outline">Settings</button>
+                <button class="btn btn-primary">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Profile Completion Alert -->
+        <div class="alert">
+            <div class="alert-content">
+                <div class="alert-text" style="flex: 1;">
+                    <h4>Complete Your Profile</h4>
+                    <p>Your profile is 85% complete</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="margin-left: 20px;">Edit Profile</button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- Left Column - Main Content -->
+            <div class="left-column">
+                <!-- Profile Section -->
+                <section class="profile-section">
+                    <div class="profile-header">
+                        <div class="profile-info">
+                            <h2>John Doe</h2>
+                            <p>Computer Science Student • University of Nairobi</p>
+                        </div>
+                        <button class="btn btn-outline">Edit Profile</button>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="stat-card">
+                            <div class="stat-value">2</div>
+                            <div class="stat-label">Active Applications</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">Shortlisted</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">1</div>
+                            <div class="stat-label">Hired</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Opportunities Section -->
+                <section class="opportunities-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Recommended Opportunities</h2>
+                        <button class="btn btn-primary">Browse All</button>
+                    </div>
+                    
+                    <div class="tabs">
+                        <div class="tab active">All Opportunities</div>
+                        <div class="tab">Internships</div>
+                        <div class="tab">Attachments</div>
+                    </div>
+
+                    <!-- Job Cards -->
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div>
+                                <span class="badge badge-internship">Internship</span>
+                                <span style="margin-left: 8px; color: #6b7280; font-size: 14px;">2 days ago</span>
+                            </div>
+                        </div>
+                        <h3 class="job-title">Software Development Intern</h3>
+                        <p class="job-company">TechCorp Solutions</p>
+                        <div class="job-meta">
+                            <span class="job-meta-item">📍 Nairobi, Kenya</span>
+                            <span class="job-meta-item">⏰ 3 months</span>
+                        </div>
+                        <div class="skills-container">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
+                        <div class="job-actions">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-outline">Save</button>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div>
+                                <span class="badge badge-attachment">Attachment</span>
+                                <span style="margin-left: 8px; color: #6b7280; font-size: 14px;">1 week ago</span>
+                            </div>
+                        </div>
+                        <h3 class="job-title">Marketing Assistant</h3>
+                        <p class="job-company">Creative Agency Ltd</p>
+                        <div class="job-meta">
+                            <span class="job-meta-item">📍 Mombasa, Kenya</span>
+                            <span class="job-meta-item">⏰ 6 months</span>
+                        </div>
+                        <div class="skills-container">
+                            <span class="skill-tag">Digital Marketing</span>
+                            <span class="skill-tag">Content Creation</span>
+                        </div>
+                        <div class="job-actions">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-outline">Save</button>
+                        </div>
+                    </div>
+
+                    <div class="job-card">
+                        <div class="job-header">
+                            <div>
+                                <span class="badge badge-internship">Internship</span>
+                                <span style="margin-left: 8px; color: #6b7280; font-size: 14px;">3 days ago</span>
+                            </div>
+                        </div>
+                        <h3 class="job-title">UI/UX Design Intern</h3>
+                        <p class="job-company">DesignHub Studios</p>
+                        <div class="job-meta">
+                            <span class="job-meta-item">📍 Nairobi, Kenya</span>
+                            <span class="job-meta-item">⏰ 2 months</span>
+                        </div>
+                        <div class="skills-container">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Adobe XD</span>
+                            <span class="skill-tag">Prototyping</span>
+                        </div>
+                        <div class="job-actions">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-outline">Save</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column - Blog Section -->
+            <div class="right-column">
+                <section class="blog-section">
+                    <h2 class="section-title">Student Resources</h2>
+                    <div class="blog-posts">
+                        <article class="blog-post">
+                            <h3>How to Write a Winning CV for Internships</h3>
+                            <p>Learn the key elements that make your CV stand out to potential employers.</p>
+                            <div class="blog-post-meta">Published: January 15, 2025</div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </article>
+                        
+                        <article class="blog-post">
+                            <h3>Top 10 Interview Questions for Tech Interns</h3>
+                            <p>Prepare for your next interview with these commonly asked technical questions.</p>
+                            <div class="blog-post-meta">Published: January 12, 2025</div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </article>
+                        
+                        <article class="blog-post">
+                            <h3>Building Your Professional Network as a Student</h3>
+                            <p>Strategies for connecting with industry professionals and mentors.</p>
+                            <div class="blog-post-meta">Published: January 8, 2025</div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </article>
+                        
+                        <article class="blog-post">
+                            <h3>Remote Internships: Tips for Success</h3>
+                            <p>How to thrive in a remote internship environment and make the most of the experience.</p>
+                            <div class="blog-post-meta">Published: January 5, 2025</div>
+                            <a href="#" class="read-more">Read more →</a>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </div>
     </div>
-    <div style="display:flex; align-items:center; gap:10px;">
-      <button onclick="toggleDarkMode()">Dark/Light Mode</button>
-      <button id="logoutBtn">Logout</button>
-    </div>
-  </div>
-</header>
 
-<main>
-  <section class="opportunities-list" id="opportunitiesList">
-    <h2>Available Opportunities</h2>
-  </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AttachLink. All rights reserved.</p>
+        </div>
+    </footer>
 
-  <section class="dashboard" id="appliedList">
-    <h2>My Applied Opportunities</h2>
-  </section>
-</main>
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
 
-<footer>
-  <p>&copy; 2025 AttachLink. All rights reserved.</p>
-</footer>
-<script src="script.js"></script>
+        // Theme toggle functionality
+        document.querySelector('.theme-toggle').addEventListener('click', function() {
+            // In a real app, this would toggle between light/dark modes
+            alert('Theme toggle functionality would be implemented here');
+        });
+    </script>
 </body>
 </html>

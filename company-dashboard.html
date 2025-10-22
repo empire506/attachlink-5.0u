@@ -11,6 +11,11 @@
     <div class="header-container">
       <h1>Company Dashboard</h1>
       <div style="display:flex; align-items:center; gap:10px;">
+        <nav id="navbar">
+        <a href="#"><i class="fas fa-home"></i> Home</a>
+        <a href="#" onclick="openModal('companyModal')"><i class="fas fa-building"></i> Companies</a>
+        <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
         <button onclick="toggleDarkMode()">Dark/Light Mode</button>
         <button id="logoutBtn">Logout</button>
       </div>
