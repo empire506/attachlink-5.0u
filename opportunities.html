@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AttachLink – Opportunities</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="header-container">
+    <h1>Available Opportunities</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav id="navbar">
+      <a href="index.html">Home</a>
+      <a href="company-dashboard.html">Company Dashboard</a>
+    </nav>
+  </div>
+  <p>Browse internship opportunities that match your skills</p>
+</header>
+
+<main>
+  <section class="hero">
+    <h2>Internship Listings</h2>
+    <p>These opportunities are posted by companies on AttachLink.</p>
+  </section>
+<h2 class="section-title">Opportunity Cards</h2>
+        <div class="comparison">
+            <div class="comparison-side light">
+                <div class="comparison-label light"></div>
+                <div class="job-card light">
+                    <div class="job-header">
+                        <div>
+                            <span class="badge badge-internship-light"></span>
+                            <span style="margin-left: 8px; color: #6b7280; font-size: 14px;">2 days ago</span>
+                        </div>
+                    </div>
+                    <h3 class="job-title light">Software Development Intern</h3>
+                    <p class="job-company light">TechCorp Solutions</p>
+                    <div class="job-meta light">
+                        <span class="job-meta-item">📍 Nairobi, Kenya</span>
+                        <span class="job-meta-item">⏰ 3 months</span>
+                    </div>
+                    <div class="skills-container">
+                        <span class="skill-tag light">React</span>
+                        <span class="skill-tag light">JavaScript</span>
+                        <span class="skill-tag light">Python</span>
+                    </div>
+                    <button class="btn btn-outline-light" style="width: 100%; margin-top: 12px;">View Details</button>
+                </div>
+
+                <div class="job-card light">
+                    <div class="job-header">
+                        <div>
+                            <span class="badge badge-attachment-light">Attachment</span>
+                            <span style="margin-left: 8px; color: #6b7280; font-size: 14px;">1 week ago</span>
+                        </div>
+                    </div>
+                    <h3 class="job-title light">Marketing Assistant</h3>
+                    <p class="job-company light">Creative Agency Ltd</p>
+                    <div class="job-meta light">
+                        <span class="job-meta-item">📍 Mombasa, Kenya</span>
+                        <span class="job-meta-item">⏰ 6 months</span>
+                    </div>
+                    <div class="skills-container">
+                        <span class="skill-tag light">Digital Marketing</span>
+                        <span class="skill-tag light">Content Creation</span>
+                    </div>
+                    <button class="btn btn-outline-light" style="width: 100%; margin-top: 12px;">View Details</button>
+                </div>
+            </div>
+
+            <div class="comparison-side dark">
+                <div class="comparison-label dark">Dark Mode</div>
+                <div class="job-card dark">
+                    <div class="job-header">
+                        <div>
+                            <span class="badge badge-internship-dark">Internship</span>
+                            <span style="margin-left: 8px; color: #9ca3af; font-size: 14px;">2 days ago</span>
+                        </div>
+                    </div>
+                    <h3 class="job-title dark">Software Development Intern</h3>
+                    <p class="job-company dark">TechCorp Solutions</p>
+                    <div class="job-meta dark">
+                        <span class="job-meta-item">📍 Nairobi, Kenya</span>
+                        <span class="job-meta-item">⏰ 3 months</span>
+                    </div>
+                    <div class="skills-container">
+                        <span class="skill-tag dark">React</span>
+                        <span class="skill-tag dark">JavaScript</span>
+                        <span class="skill-tag dark">Python</span>
+                    </div>
+                    <button class="btn btn-outline-dark" style="width: 100%; margin-top: 12px;">View Details</button>
+                </div>
+
+                <div class="job-card dark">
+                    <div class="job-header">
+                        <div>
+                            <span class="badge badge-attachment-dark">Attachment</span>
+                            <span style="margin-left: 8px; color: #9ca3af; font-size: 14px;">1 week ago</span>
+                        </div>
+                    </div>
+                    <h3 class="job-title dark">Marketing Assistant</h3>
+                    <p class="job-company dark">Creative Agency Ltd</p>
+                    <div class="job-meta dark">
+                        <span class="job-meta-item">📍 Mombasa, Kenya</span>
+                        <span class="job-meta-item">⏰ 6 months</span>
+                    </div>
+                    <div class="skills-container">
+                        <span class="skill-tag dark">Digital Marketing</span>
+                        <span class="skill-tag dark">Content Creation</span>
+                    </div>
+                    <button class="btn btn-outline-dark" style="width: 100%; margin-top: 12px;">View Details</button>
+                </div>
+            </div>
+        </div>
+  <section class="opportunities-list" id="opportunitiesList"></section>
+</main>
+
+<footer>
+  <p>&copy; 2025 AttachLink. All rights reserved.</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

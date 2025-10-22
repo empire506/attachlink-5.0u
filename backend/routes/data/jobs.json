@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Software Development Intern",
+    "company": "TechCorp Solutions",
+    "type": "Internship",
+    "location": "Nairobi, Kenya",
+    "duration": "3 months",
+    "posted": "2 days ago",
+    "skills": ["React", "JavaScript", "Python"],
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "title": "Marketing Assistant",
+    "company": "Creative Agency Ltd",
+    "type": "Attachment",
+    "location": "Mombasa, Kenya",
+    "duration": "6 months",
+    "posted": "1 week ago",
+    "skills": ["Digital Marketing", "Content Creation"],
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "title": "UI/UX Design Intern",
+    "company": "DesignHub Studios",
+    "type": "Internship",
+    "location": "Nairobi, Kenya",
+    "duration": "2 months",
+    "posted": "3 days ago",
+    "skills": ["Figma", "Adobe XD", "Prototyping"],
+    "status": "active"
+  }
+]

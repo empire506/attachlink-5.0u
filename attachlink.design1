@@ -1,0 +1,793 @@
+https://claude.ai/public/artifacts/af3c7437-8511-4547-8967-8e3e02479228
+https://www.figma.com/make/BdJGZ7toTc8YEO6FYyJwKt/Internship-Opportunity-Platform?node-id=0-1&t=UqNAH4ghUjU1e8PZ-1
+# AttachLink Design Specification
+
+Complete visual design documentation for the AttachLink platform, covering all pages in both light and dark modes.
+
+---
+
+## Color Palette
+
+### Light Mode
+
+- **Primary Blue**: `#4f67eb` (Main brand color)
+- **Primary Hover**: `#3d52d4` (Darker blue for hover states)
+- **Primary Light**: `#e8ebfa` (Light blue for backgrounds)
+- **Secondary**: `#eff1fc` (Light gray-blue)
+- **Background**: `#ffffff` (Pure white)
+- **Foreground**: `#1a1a1a` (Nearly black text)
+- **Card Background**: `#ffffff` (White cards)
+- **Border**: `#e5e7eb` (Light gray borders)
+- **Text Gray**: `#6b7280` (Muted text)
+- **Text Dark**: `#111827` (Primary text)
+- **Success**: `#10b981` (Green for success states)
+- **Danger**: `#ef4444` (Red for errors/rejected)
+- **Warning**: `#f59e0b` (Orange for warnings)
+
+### Dark Mode
+
+- **Primary Blue**: `#7c90f2` (Lighter blue for dark backgrounds)
+- **Primary Hover**: `#97a7f5` (Even lighter for hover)
+- **Primary Light**: `#2a3250` (Dark blue-tinted background)
+- **Secondary**: `#2a3250` (Dark blue-gray)
+- **Background**: `#0f111a` (Very dark blue-black)
+- **Foreground**: `#f0f0f0` (Off-white text)
+- **Card Background**: `#1a1d2e` (Dark blue-tinted cards)
+- **Border**: `#2d3448` (Darker borders)
+- **Text Gray**: `#9ca3af` (Lighter muted text)
+- **Text Dark**: `#f0f0f0` (Primary text in dark mode)
+
+---
+
+## 1. Navigation Bar
+
+### Layout
+
+- **Position**: Sticky at top, z-index 50
+- **Height**: 64px (4rem)
+- **Max Width**: 1280px centered
+- **Padding**: 0 1.5rem horizontal
+
+### Light Mode Design
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  🎓 AttachLink    [Home] [For Companies] [For Students]   🌙 👤 │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+- **Background**: White (#ffffff)
+- **Border Bottom**: 1px solid #e5e7eb
+- **Box Shadow**: Subtle shadow (0 1px 3px rgba(0,0,0,0.1))
+- **Logo**: Blue graduation cap icon + "AttachLink" text (#4f67eb)
+- **Nav Links**: Gray (#6b7280), hover → #111827 with light background
+- **Active Link**: Blue background (#4f67eb) with white text
+- **Theme Toggle**: Moon icon in outlined button
+- **Auth Buttons**: "Student Login" (outlined), "Company Login" (blue filled)
+
+### Dark Mode Design
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  🎓 AttachLink    [Home] [For Companies] [For Students]   ☀️ 👤 │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+- **Background**: Dark card (#1a1d2e)
+- **Border Bottom**: 1px solid #2d3448
+- **Logo**: Light blue (#7c90f2)
+- **Nav Links**: Light gray (#9ca3af), hover → #f0f0f0
+- **Active Link**: Blue background (#7c90f2) with dark text
+- **Theme Toggle**: Sun icon in outlined button
+
+### User Badge (When Logged In)
+
+```
+┌──────────────────────────────┐
+│ 💼 Company  [Logout]         │
+└──────────────────────────────┘
+```
+
+- Rounded pill badge with icon
+- Icon changes: 💼 for Company, 🎓 for Student
+
+---
+
+## 2. Landing Page
+
+### Hero Section
+
+#### Light Mode
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│  ╔════════════════════════════╗  ╔═══════════════════════════╗ │
+│  ║                            ║  ║                           ║ │
+│  ║  Bridge the Gap Between    ║  ║                           ║ │
+│  ║  [Students] and [Companies]║  ║    [Professional Image]   ║ │
+│  ║                            ║  ║                           ║ │
+│  ║  Connect talented students ║  ║                           ║ │
+│  ║  with meaningful internsh..║  ║                           ║ │
+│  ║                            ║  ║                           ║ │
+│  ║  [🎓 I'm a Student]        ║  ║                           ║ │
+│  ║  [💼 I'm a Company]        ║  ║                           ║ │
+│  ╚════════════════════════════╝  ╚═══════════════════════════╝ │
+└────────────────────────────────────────────────────────────────┘
+```
+
+- **Background**: Gradient from light blue (#eff6ff) to white
+- **Heading**: 3.75rem (60px) font size, bold
+- **"Students" & "Companies"**: Blue color (#4f67eb)
+- **Description**: 1.25rem (20px), gray (#6b7280)
+- **Buttons**:
+  - "I'm a Student": Blue filled (#4f67eb), white text, large (14px padding)
+  - "I'm a Company": White outlined, blue border, large
+- **Image**: Professional handshake photo, rounded corners, large shadow
+- **Padding**: 5rem top/bottom
+
+#### Dark Mode
+
+- **Background**: Gradient from dark blue (#1a1d2e) to background (#0f111a)
+- **Heading**: White text (#f0f0f0)
+- **"Students" & "Companies"**: Light blue (#7c90f2)
+- **Description**: Light gray (#9ca3af)
+- **Buttons**:
+  - "I'm a Student": Light blue filled (#7c90f2), dark text
+  - "I'm a Company": Outlined with border
+
+### Stats Section
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│         ┌───┐            ┌───┐            ┌───┐              │
+│         │ 💼│            │ 👥│            │ 📈│              │
+│         └───┘            └───┘            └───┘              │
+│        2,500+           15,000+          1,200+              │
+│   Active Opportunities  Students Placed  Partner Companies   │
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Background**: White (#ffffff)
+- **Icon Container**: 4rem circle, light blue background (#e8ebfa)
+- **Icons**: Blue (#4f67eb), 2rem size
+- **Numbers**: 2rem, bold, dark text (#111827)
+- **Labels**: Gray (#6b7280)
+- **Padding**: 4rem top/bottom
+
+#### Dark Mode
+
+- **Background**: Card background (#1a1d2e)
+- **Icon Container**: Dark blue background (#2a3250)
+- **Icons**: Light blue (#7c90f2)
+- **Numbers**: White (#f0f0f0)
+- **Labels**: Light gray (#9ca3af)
+
+### How It Works Section
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                    How AttachLink Works                       │
+│           Simple steps to connect students with opportunities │
+│                                                               │
+│  ╔════════ For Students ════════╗  ╔═══════ For Companies ══╗│
+│  ║                               ║  ║                        ║│
+│  ║  ① Create Your Profile        ║  ║  ① Post Opportunities  ║│
+│  ║     Upload your CV and...     ║  ║     Create detailed... ║│
+│  ║                               ║  ║                        ║│
+│  ║  ② Browse Opportunities       ║  ║  ② Review Applications ║│
+│  ║     Search and filter...      ║  ║     Browse student...  ║│
+│  ║                               ║  ║                        ║│
+│  ║  ③ Apply & Connect            ║  ║  ③ Hire Top Talent     ║│
+│  ║     Apply directly to...      ║  ║     Connect with...    ║│
+│  ╚═══════════════════════════════╝  ╚════════════════════════╝│
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Background**: Light gray (#f9fafb)
+- **Section Header**: 2rem, bold, dark (#111827)
+- **Subheader**: 1.25rem, gray (#6b7280)
+- **Section Titles**: Blue graduation/briefcase icon + 1.5rem bold text
+- **Step Numbers**: Blue circles (#4f67eb), white text, 2rem size
+- **Step Titles**: Bold, dark text
+- **Step Descriptions**: Gray text (#6b7280)
+- **Padding**: 5rem top/bottom
+
+#### Dark Mode
+
+- **Background**: Main background (#0f111a)
+- **Headers**: White text (#f0f0f0)
+- **Icons**: Light blue (#7c90f2)
+- **Step Numbers**: Light blue circles (#7c90f2)
+- **Step Descriptions**: Light gray (#9ca3af)
+
+### Featured Opportunities Section
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│              Featured Opportunities                           │
+│    Latest internships and attachments from top companies      │
+│                                                               │
+│  ╔═══════════╗  ╔═══════════╗  ╔═══════════╗               │
+│  ║[Internship]  ║[Attachment]  ║[Internship]                │
+│  ║ 2 days ago  ║ 1 week ago  ║ 3 days ago                  │
+│  ║             ║             ║                               │
+│  ║ Software    ║ Marketing   ║ Data Analyst                 │
+│  ║ Development ║ Assistant   ║ Trainee                      │
+│  ║ Intern      ║             ║                               │
+│  ║             ║             ║                               │
+│  ║ TechCorp    ║ Creative    ║ FinanceHub                   │
+│  ║ Solutions   ║ Agency Ltd  ║ Kenya                        │
+│  ║             ║             ║                               │
+│  ║ 📍 Nairobi  ║ 📍 Mombasa  ║ 📍 Kisumu                    │
+│  ║ ⏰ 3 months ║ ⏰ 6 months ║ ⏰ 4 months                   │
+│  ║             ║             ║                               │
+│  ║[View Details]║[View Details]║[View Details]              │
+│  ╚═══════════╝  ╚═══════════╝  ╚═══════════╝               │
+│                                                               │
+│              [🔍 View All Opportunities]                      │
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Cards**: White background, border, rounded corners, shadow
+- **Hover**: Larger shadow (lift effect)
+- **Badges**:
+  - "Internship": Blue filled (#4f67eb), white text
+  - "Attachment": Gray filled (#eff1fc), dark text
+- **Job Title**: 1.125rem, bold
+- **Company Name**: Blue (#4f67eb), bold
+- **Meta Info**: Gray (#6b7280), 0.875rem
+- **Button**: Outlined, full width, gray border
+- **CTA Button**: Large, blue filled
+- **Padding**: 5rem top/bottom
+
+#### Dark Mode
+
+- **Cards**: Dark card background (#1a1d2e), dark border (#2d3448)
+- **Badges**:
+  - "Internship": Light blue (#7c90f2), dark text
+  - "Attachment": Dark secondary (#2a3250), light text
+- **Company Name**: Light blue (#7c90f2)
+- **Meta Info**: Light gray (#9ca3af)
+
+---
+
+## 3. Company Dashboard
+
+### Overview Stats Cards
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  Company Dashboard                                            │
+│  Manage your job postings and review applications            │
+│                                                               │
+│  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐        │
+│  │Active   │  │Total    │  │Short-   │  │Hired    │        │
+│  │Jobs     │  │Apps     │  │listed   │  │         │        │
+│  │    2    │  │   43    │  │   12    │  │    3    │        │
+│  │   💼    │  │   👥    │  │   👁️    │  │   📅    │        │
+│  └─────────┘  └─────────┘  └─────────┘  └─────────┘        │
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Header**: 2rem bold, dark text
+- **Subheader**: Gray text
+- **Stat Cards**: White background, border, shadow
+- **Card Layout**: Flex, space-between
+- **Labels**: 0.875rem, gray
+- **Numbers**: 1.5rem, bold, dark
+- **Icons**: 2rem, blue (#4f67eb)
+
+#### Dark Mode
+
+- **Cards**: Dark background (#1a1d2e), dark border
+- **Numbers**: White text
+- **Icons**: Light blue (#7c90f2)
+
+### Tabs Navigation
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  [Job Postings]  [Applications]                              │
+│  ═══════════════                                              │
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Border Bottom**: 1px solid border
+- **Inactive Tab**: Gray text, no underline
+- **Active Tab**: Blue text (#4f67eb), 2px blue underline
+- **Hover**: Foreground color
+
+#### Dark Mode
+
+- **Active Tab**: Light blue (#7c90f2), underline
+
+### Job Postings Tab
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  Your Job Postings                    [➕ Post New Job]      │
+│                                                               │
+│  ╔═══════════════════════════════════════════════════════════╗│
+│  ║ Software Development Intern [Internship] [Active]    25  ║│
+│  ║ 📍 Nairobi, Kenya                              Applications║│
+│  ║ Deadline: 2024-11-15                      [View Details]  ║│
+│  ╚══���════════════════════════════════════════════════════════╝│
+│                                                               │
+│  ╔═══════════════════════════════════════════════════════════╗│
+│  ║ Marketing Assistant [Attachment] [Active]            18  ║│
+│  ║ 📍 Mombasa, Kenya                              Applications║│
+│  ║ Deadline: 2024-11-30                      [View Details]  ║│
+│  ╚═══════════════════════════════════════════════════════════╝│
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Card**: White, border, padding, shadow
+- **Job Title**: 1.125rem, bold
+- **Badges**: Blue/gray for type, green for active
+- **Application Count**: Large (1.5rem), blue (#4f67eb)
+- **Button**: Small, outlined
+
+#### Job Form (When Visible)
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  Post a New Opportunity                                       │
+│  Create a new internship or attachment opportunity            │
+│  ┌──────────────────────┐  ┌──────────────────────┐         │
+│  │ Job Title            │  │ Type                 │         │
+│  │ [________________]   │  │ [Select type ▼]     │         │
+│  └──────────────────────┘  └──────────────────────┘         │
+│  ┌──────────────────────┐  ┌──────────────────────┐         │
+│  │ Location             │  │ Duration             │         │
+│  │ [________________]   │  │ [________________]   │         │
+│  └──────────────────────┘  └──────────────────────┘         │
+│  ┌────────────────────────────────────────────────┐         │
+│  │ Job Description                                 │         │
+│  │ [_________________________________________]     │         │
+│  │ [_________________________________________]     │         │
+│  └────────────────────────────────────────────────┘         │
+│  [Post Job] [Cancel]                                         │
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Inputs**: White background, gray border, rounded
+- **Focus State**: Blue border (#4f67eb), blue glow
+- **Labels**: 0.875rem, medium weight
+- **Buttons**: Primary blue filled, secondary outlined
+
+### Applications Tab
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  Recent Applications                                          │
+│                                                               │
+│  ╔═══════════════════════════════════════════════════════════╗│
+│  ║ Sarah Wanjiku [Under Review]                             ║│
+│  ║ Applied for: Software Development Intern                 ║│
+│  ║ Applied on: 2024-10-28                                   ║│
+│  ║ [React] [JavaScript] [Python]                            ║│
+│  ║                                  [View CV] [Contact]     ║│
+│  ╚═══════════════════════════════════════════════════════════╝│
+│                                                               │
+│  ╔═══════════════════════════════════════════════════════════╗│
+│  ║ John Kimani [Shortlisted]                                ║│
+│  ║ Applied for: Marketing Assistant                         ║│
+│  ║ Applied on: 2024-10-27                                   ║│
+│  ║ [Digital Marketing] [Content Creation] [Analytics]      ║│
+│  ║                                  [View CV] [Contact]     ║│
+│  ╚═══════════════════════════════════════════════════════════╝│
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Student Name**: 1.125rem, bold
+- **Status Badges**:
+  - "Under Review": Gray
+  - "Shortlisted": Blue
+  - "New": Outlined
+- **Skills**: Small outlined badges
+- **Buttons**: Outlined and filled, small size
+
+---
+
+## 4. Student Dashboard
+
+### Profile Completeness Alert
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  ║ Complete Your Profile                    85% ████████░░  │
+│  ║ Your profile is 85% complete              [Edit Profile] │
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Border Left**: 4px solid blue (#4f67eb)
+- **Background**: White
+- **Progress Bar**: Blue fill, gray background
+- **Title**: Bold
+- **Description**: Gray, small
+
+#### Dark Mode
+
+- **Background**: Dark card (#1a1d2e)
+- **Border Left**: Light blue (#7c90f2)
+- **Progress**: Light blue fill
+
+### Browse Jobs Tab
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  Available Opportunities        [Search...] [🔍]             │
+│                                                               │
+│  ╔═══════════════════════════════════════════════════════════╗│
+│  ║ UI/UX Design Intern [Internship]                         ║│
+│  ║ Design Studio Kenya                                      ║│
+│  ║ 📍 Nairobi, Kenya  ⏰ 4 months  📅 Deadline: 2024-11-20  ║│
+│  ║ [Design Tools] [Creative Thinking] [Portfolio]           ║│
+│  ║                            [👁️ View Details] [📤 Apply]   ║│
+│  ╚═══════════════════════════════════════════════════════════╝│
+│                                                               │
+│  ╔═══════════════════════════════════════════════════════════╗│
+│  ║ Accounting Assistant [Attachment]                        ║│
+│  ║ Audit Firm Ltd                                           ║│
+│  ║ 📍 Eldoret, Kenya  ⏰ 6 months  📅 Deadline: 2024-11-25  ║│
+│  ║ [Accounting Principles] [Excel] [Attention to Detail]   ║│
+│  ║                            [👁️ View Details] [📤 Apply]   ║│
+│  ╚═══════════════════════════════════════════════════════════╝│
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Search Bar**: 16rem width, gray border, white background
+- **Job Cards**: White, hover shadow lift
+- **Company Name**: Blue (#4f67eb), bold
+- **Meta Icons**: Small (1rem), inline
+- **Skills**: Small outlined badges
+- **Action Buttons**: Eye icon + "View Details", Send icon + "Apply"
+
+### My Applications Tab
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  My Applications                                              │
+│                                                               │
+│  ╔═══════════════════════════════════════════════════════════╗│
+│  ║ Software Development Intern [Internship] [Under Review]  ║│
+│  ║ TechCorp Solutions                                       ║│
+│  ║ 📍 Nairobi, Kenya  📅 Applied: 2024-10-25                ║│
+│  ║                                     [View Application]   ║│
+│  ╚═══════════════════════════════════════════════════════════╝│
+│                                                               │
+│  ╔═══════════════════════════════════════════════════════════╗│
+│  ║ Data Analyst Trainee [Internship] [Shortlisted]         ║│
+│  ║ FinanceHub Kenya                                         ║│
+│  ║ 📍 Kisumu, Kenya  📅 Applied: 2024-10-20                 ║│
+│  ║                                     [View Application]   ║│
+│  ╚═══════════════════════════════════════════════════════════╝│
+│                                                               │
+│  ╔═══════════════════════════════════════════════════════════╗│
+│  ║ Marketing Assistant [Attachment] [Rejected]              ║│
+│  ║ Creative Agency Ltd                                      ║│
+│  ║ 📍 Mombasa, Kenya  📅 Applied: 2024-10-18                ║│
+│  ║                                     [View Application]   ║│
+│  ╚═══════════════════════════════════════════════════════════╝│
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **Status Colors**:
+  - "Under Review": Gray badge
+  - "Shortlisted": Blue badge
+  - "Rejected": Red badge (#ef4444)
+
+### Profile Tab
+
+#### Light Mode
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  My Profile                                   [✏️ Edit Profile]│
+│                                                               │
+│  ╔═══════════════════════════════╗  ╔══════════════════════╗│
+│  ║ Profile Information            ║  ║ CV & Documents       ║│
+│  ║ ┌───────────┬───────────┐     ║  ║  ┌────────────────┐ ║│
+│  ║ │Full Name  │Email      │     ║  ║  │                │ ║│
+│  ║ │John Doe   │john@...   │     ║  ║  │   📄           │ ║│
+│  ║ ├───────────┼───────────┤     ║  ║  │                │ ║│
+│  ║ │Phone      │University │     ║  ║  │ Upload your CV │ ║│
+│  ║ │+254...    │UoN        │     ║  ║  │                │ ║│
+│  ║ ├───────────┼───────────┤     ║  ║  │ [Choose File]  │ ║│
+│  ║ │Course     │Year       │     ║  ║  │                │ ║│
+│  ║ │CS         │3rd Year   │     ║  ║  └────────────────┘ ║│
+│  ║ └───────────┴───────────┘     ║  ║                      ║│
+│  ║ Bio: Passionate computer...   ║  ║  Supported: PDF,DOC  ║│
+│  ║                                ║  ║  Max size: 5MB       ║│
+│  ║ Skills:                        ║  ╚══════════════════════╝│
+│  ║ [JavaScript] [Python] [React] ║                          │
+│  ║ [SQL]                          ║                          │
+│  ╚═══════════════════════════════╝                          │
+└──────────────────────────────────────────────────────────────┘
+```
+
+- **2-Column Grid**: 2fr + 1fr
+- **Field Labels**: Small (0.75rem), gray, light weight
+- **Field Values**: Medium weight
+- **Skills**: Secondary colored badges
+- **Upload Area**: Dashed border, centered content
+- **Upload Icon**: Large (3rem), gray
+
+#### Profile Edit Form
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│  Edit Profile                                                 │
+│  Update your information to attract employers                 │
+│  ┌──────────────────────┐  ┌──────────────────────┐         │
+│  │ Full Name            │  │ Email                │         │
+│  │ [John Doe_______]    │  │ [john@email.com___]  │         │
+│  └──────────────────────┘  └──────────────────────┘         │
+│  ┌──────────────────────┐  ┌──────────────────────┐         │
+│  │ Phone                │  │ University           │         │
+│  │ [+254..._______]     │  │ [University of...]   │         │
+│  └──────────────────────┘  └──────────────────────┘         │
+│  ┌────────────────────────────────────────────────┐         │
+│  │ Bio                                             │         │
+│  │ [Passionate computer science student...]       │         │
+│  └────────────────────────────────────────────────┘         │
+│  [Save Changes] [Cancel]                                     │
+└──────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 5. Icon System
+
+### Primary Icons Used
+
+**Navigation & Actions:**
+
+- 🎓 Graduation Cap (Students, Education)
+- 💼 Briefcase (Companies, Jobs)
+- 🌙 Moon (Dark mode toggle)
+- ☀️ Sun (Light mode toggle)
+- 🔍 Search/Magnifying Glass
+- ➕ Plus (Add new)
+- ✏️ Pencil/Edit (Edit profile)
+- 👁️ Eye (View details)
+- 📤 Send/Paper plane (Apply)
+- 📄 Document (CV/Files)
+- ⬆️ Upload (File upload)
+
+**Information & Metadata:**
+
+- 📍 Pin/Map marker (Location)
+- ⏰ Clock (Duration)
+- 📅 Calendar (Dates, deadlines)
+
+**Statistics:**
+
+- 👥 Users/People (Applications, students)
+- 📈 Trending up (Growth, stats)
+- 👁️ Eye (Views, shortlisted)
+
+**Status Indicators:**
+
+- ✓ Checkmark (Success, active)
+- ✗ X mark (Rejected, closed)
+- ⚠️ Warning (Attention needed)
+
+---
+
+## 6. Typography System
+
+### Font Sizes
+
+- **Hero Title**: 60px (3.75rem) - Desktop, 40px (2.5rem) - Mobile
+- **Section Headers**: 32px (2rem)
+- **Section Subheaders**: 20px (1.25rem)
+- **Card Titles**: 18px (1.125rem)
+- **Body Text**: 16px (1rem)
+- **Small Text**: 14px (0.875rem)
+- **Tiny Text**: 12px (0.75rem)
+
+### Font Weights
+
+- **Bold**: 700 (Headings, important numbers)
+- **Semibold**: 600 (Subheadings, labels)
+- **Medium**: 500 (Buttons, navigation)
+- **Regular**: 400 (Body text)
+
+### Font Family
+
+```
+-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif
+```
+
+---
+
+## 7. Spacing System
+
+### Padding/Margin Scale
+
+- **XS**: 0.25rem (4px)
+- **SM**: 0.5rem (8px)
+- **MD**: 1rem (16px)
+- **LG**: 1.5rem (24px)
+- **XL**: 2rem (32px)
+- **2XL**: 3rem (48px)
+- **3XL**: 4rem (64px)
+- **4XL**: 5rem (80px)
+
+### Container Max Widths
+
+- **Content**: 1280px
+- **Form Sections**: 640px
+- **Cards**: Full width within grid
+
+---
+
+## 8. Border & Shadow System
+
+### Border Radius
+
+- **Small**: 0.375rem (6px)
+- **Medium**: 0.5rem (8px) - Default
+- **Large**: 0.75rem (12px)
+- **Full**: 9999px (Pills/circles)
+
+### Shadows
+
+- **Default**: `0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)`
+- **Medium**: `0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)`
+- **Large**: `0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05)`
+- **XL**: `0 20px 25px rgba(0,0,0,0.1), 0 8px 10px rgba(0,0,0,0.05)`
+- **Hover**: Transition from default to large shadow
+
+---
+
+## 9. Interactive States
+
+### Buttons
+
+**Primary Button (Light Mode):**
+
+- Default: `#4f67eb` background, white text
+- Hover: `#3d52d4` background
+- Active: Slightly darker with inset shadow
+- Focus: Blue ring (3px, 20% opacity)
+- Disabled: 50% opacity, no pointer events
+
+**Outlined Button (Light Mode):**
+
+- Default: Transparent background, `#e5e7eb` border
+- Hover: `#eff1fc` background
+- Active: Slightly darker background
+
+**Dark Mode Adjustments:**
+
+- Primary: `#7c90f2` background, dark text
+- Outlined: `#2d3448` border, `#2a3250` hover
+
+### Input Fields
+
+**Light Mode:**
+
+- Default: White background, `#e5e7eb` border
+- Hover: Slightly darker border
+- Focus: `#4f67eb` border, blue glow
+- Disabled: Gray background, no interaction
+
+**Dark Mode:**
+
+- Default: `#1a1d2e` background, `#2d3448` border
+- Focus: `#7c90f2` border, blue glow
+
+### Cards
+
+**Light Mode:**
+
+- Default: White background, subtle shadow
+- Hover: Larger shadow (lift effect)
+- Active: Pressed state with subtle inset
+
+**Dark Mode:**
+
+- Default: `#1a1d2e` background, `#2d3448` border
+- Hover: Lighter border, larger shadow
+
+---
+
+## 10. Responsive Breakpoints
+
+### Mobile (< 768px)
+
+- Single column layouts
+- Stacked hero sections
+- Hidden navigation links (menu icon instead)
+- Full-width cards
+- Smaller font sizes
+- Reduced padding
+
+### Tablet (768px - 1024px)
+
+- 2-column grids for cards
+- Maintained navigation
+- Medium padding
+
+### Desktop (> 1024px)
+
+- 3-column grids for opportunity cards
+- Full navigation visible
+- Maximum content width: 1280px
+- Optimal spacing and padding
+
+---
+
+## 11. Accessibility Features
+
+### Color Contrast
+
+- All text meets WCAG AA standards (4.5:1 for normal text)
+- Interactive elements have 3:1 contrast minimum
+- Focus states clearly visible
+
+### Keyboard Navigation
+
+- Tab order follows logical flow
+- Focus indicators on all interactive elements
+- Skip to main content link
+
+### Screen Reader Support
+
+- Semantic HTML elements
+- ARIA labels on icon-only buttons
+- Alt text on images
+- Status announcements for dynamic content
+
+---
+
+## 12. Animation & Transitions
+
+### Timing
+
+- Fast: 150ms (hover states)
+- Medium: 200ms (theme toggle, tab switches)
+- Slow: 300ms (page transitions, modal animations)
+
+### Easing
+
+- Standard: `ease-in-out`
+- Enter: `ease-out`
+- Exit: `ease-in`
+
+### Animated Elements
+
+- Button hover states
+- Card hover lift
+- Theme toggle
+- Tab switching
+- Form validation feedback
+- Loading states
+
+---
+
+This comprehensive design specification ensures consistency across all pages and modes of the AttachLink platform. All visual elements follow the blue color scheme in both light and dark modes, creating a cohesive and professional appearance.

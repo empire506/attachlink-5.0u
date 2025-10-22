@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "attachlink-backend",
   "version": "1.0.0",
   "description": "Backend for AttachLink connecting students and companies for internships",
@@ -21,5 +22,11 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.0",
     "nodemon": "^3.1.0"
+=======
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "typescript": "^5.9.3"
+>>>>>>> c08f5442e74ed5842de3d66795f20f55026cf4b1
   }
 }

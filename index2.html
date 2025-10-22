@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AttachLink – Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>AttachLink</h1>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <nav id="navbar">
+        <a href="index2.html">Home</a>
+        <a href="company-dashboard.html">Company Dashboard</a>
+        <a href="opportunities.html">Opportunities</a>
+      </nav>
+    </div>
+    <p>Connecting Students and Companies — Online and Effortlessly</p>
+  </header>
+
+  <main>
+    <!-- STUDENT FORM -->div class="card student" onclick="flipCard(this)">
+        <div class="card-face card-front">
+          <i class="fas fa-user-graduate card-icon floating"></i>
+          <h3 class="card-title">Student</h3>
+          <p class="card-description">Find internships, part-time jobs, and career opportunities tailored to your skills and interests.</p>
+          <button class="card-btn">Get Started</button>
+        </div>
+        <div class="card-face card-back">
+          <div class="form-container">
+            <h3 class="form-title">Student Sign In</h3>
+            <form id="studentProfileForm" autocomplete="off">
+              <div class="form-group">
+                <label>Email:</label>
+                <input type="email" name="email" required placeholder="your@email.com" />
+                <label>Phone:
+            <input type="tel" name="phone" required />
+          </label>
+          <label>Your Skill:
+            <input type="text" name="skill" required placeholder="e.g. Web Development" />
+          </label>
+              
+              </div>
+              <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="password" required placeholder="••••••••" />
+
+              </div>
+              <button type="submit" class="submit-btn">Sign In</button>
+              <div class="form-footer">
+                <a href="#" onclick="showStudentSignup(event)">Don't have an account? Sign up</a>
+                <a href="#" onclick="showStudentRecovery(event)">Forgot password?</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+      <div style="flex:1; text-align:center;">
+        <img src="./images/redd-francisco-5U_28ojjgms-unsplash.jpg" alt="Student filling internship form" class="form-img" />
+      </div>
+    </section>
+
+    <!-- COMPANY FORM -->
+    <section class="form-section" aria-labelledby="company-heading">
+      <div style="flex:1;">
+        <h2 id="company-heading">Company Registration</h2>
+        <form id="companyProfileForm" autocomplete="off">
+          <label>Company Name:
+            <input type="text" name="companyName" required />
+          </label>
+          <label>Email:
+            <input type="email" name="email" required />
+          </label>
+          <label>Phone:
+            <input type="tel" name="phone" required />
+          </label>
+          <label>Skills you hire for:
+            <input type="text" name="skills" required placeholder="e.g. Web Development, Cyber Security" />
+          </label>
+          <label>Location:
+            <input type="text" name="location" required />
+          </label>
+          <label>Password:
+            <input type="password" name="password" required placeholder="Set a password"/>
+          </label>
+          <button type="submit">Save & Go to Dashboard</button>
+        </form>
+      </div>
+      <div style="flex:1; text-align:center;">
+        <img src="./images/redd-francisco-5U_28ojjgms-unsplash.jpg" alt="Company registration form" class="form-img" />
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AttachLink. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

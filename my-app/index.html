@@ -1,0 +1,1873 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttachLink - Connect Students with Opportunities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4f67eb;
+            --primary-hover: #3d52d4;
+            --primary-light: #e8ebfa;
+            --secondary-color: #eff1fc;
+            --background: #ffffff;
+            --foreground: #1a1a1a;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+            --text-gray: #6b7280;
+            --text-dark: #111827;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --radius: 0.5rem;
+        }
+
+        .dark {
+            --primary-color: #7c90f2;
+            --primary-hover: #97a7f5;
+            --primary-light: #2a3250;
+            --secondary-color: #2a3250;
+            --background: #0f111a;
+            --foreground: #f0f0f0;
+            --card-bg: #1a1d2e;
+            --border-color: #2d3448;
+            --text-gray: #9ca3af;
+            --text-dark: #f0f0f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--foreground);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-btn {
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius);
+            background: transparent;
+            border: none;
+            color: var(--text-gray);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .nav-btn:hover {
+            background: var(--secondary-color);
+            color: var(--text-dark);
+        }
+
+        .nav-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--foreground);
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary-color);
+        }
+
+        .btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        .btn-lg {
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+        }
+
+        .theme-toggle {
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: var(--radius);
+            background: transparent;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--secondary-color);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.625rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background: var(--secondary-color);
+            color: var(--foreground);
+        }
+
+        .badge-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .badge-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+        }
+
+        .badge-success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-danger {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .badge-icon {
+            width: 0.75rem;
+            height: 0.75rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, #eff6ff, white);
+            padding: 5rem 1rem;
+        }
+
+        .dark .hero {
+            background: linear-gradient(to bottom, #1a1d2e, var(--background));
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 3.75rem;
+            }
+        }
+
+        .hero .highlight {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 24rem;
+            border-radius: var(--radius);
+            object-fit: cover;
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 1rem;
+            background: var(--card-bg);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            background: var(--primary-light);
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .stat-icon svg {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary-color);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 5rem 1rem;
+            background: var(--secondary-color);
+        }
+
+        .dark .how-it-works {
+            background: var(--background);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .how-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .how-section h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .how-section h3 svg {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary-color);
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .step-content h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: var(--text-gray);
+        }
+
+        /* Card */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-description {
+            color: var(--text-gray);
+            font-size: 0.875rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        /* Opportunities */
+        .opportunities {
+            padding: 5rem 1rem;
+        }
+
+        .opportunities-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .opportunities-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .opportunity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.5rem;
+        }
+
+        .opportunity-meta {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        /* Dashboard */
+        .dashboard {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .dashboard-header {
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-header p {
+            color: var(--text-gray);
+        }
+
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .stats-dashboard {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-card-info p:first-child {
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-card-info p:last-child {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .stat-card svg {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary-color);
+        }
+
+        /* Tabs */
+        .tabs {
+            margin-bottom: 1.5rem;
+        }
+
+        .tabs-list {
+            display: flex;
+            gap: 0.25rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-trigger {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--text-gray);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .tab-trigger:hover {
+            color: var(--foreground);
+        }
+
+        .tab-trigger.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            color: var(--foreground);
+            font-size: 0.875rem;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 103, 235, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Job/Opportunity List */
+        .job-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .job-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .job-info {
+            flex: 1;
+        }
+
+        .job-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .job-header h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .job-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-gray);
+        }
+
+        .job-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        /* Profile */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .profile-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        .profile-info {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .profile-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .profile-field {
+            margin-bottom: 1rem;
+        }
+
+        .profile-field label {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        .profile-field p {
+            font-weight: 500;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .upload-icon {
+            width: 3rem;
+            height: 3rem;
+            color: var(--text-gray);
+            margin: 0 auto 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 0.5rem;
+            background: var(--secondary-color);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .alert-card {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Utilities */
+        .hidden {
+            display: none !important;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .gap-1 {
+            gap: 0.25rem;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-3 {
+            margin-top: 0.75rem;
+        }
+
+        .mb-3 {
+            margin-bottom: 0.75rem;
+        }
+
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .icon-sm {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navigation">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <svg class="logo-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/>
+                </svg>
+                <span>AttachLink</span>
+            </a>
+            
+            <div class="nav-links">
+                <button class="nav-btn active" data-tab="home" onclick="showPage('home')">Home</button>
+                <button class="nav-btn" data-tab="companies" onclick="showPage('companies')">For Companies</button>
+                <button class="nav-btn" data-tab="students" onclick="showPage('students')">For Students</button>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg id="theme-icon-light" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                    </svg>
+                    <svg id="theme-icon-dark" class="hidden" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                </button>
+                
+                <div id="auth-buttons">
+                    <button class="btn btn-outline btn-sm" onclick="login('student')">Student Login</button>
+                    <button class="btn btn-primary btn-sm" onclick="login('company')">Company Login</button>
+                </div>
+
+                <div id="user-badge" class="hidden" style="display: flex; align-items: center; gap: 0.75rem;">
+                    <span class="badge">
+                        <svg class="badge-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span id="user-type-label"></span>
+                    </span>
+                    <button class="btn btn-outline btn-sm" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Landing Page -->
+    <main id="landing-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-grid">
+                <div>
+                    <h1>
+                        Bridge the Gap Between 
+                        <span class="highlight">Students</span> and 
+                        <span class="highlight">Companies</span>
+                    </h1>
+                    <p>
+                        Connect talented students with meaningful internship and attachment opportunities. 
+                        Build your career or find your next star employee.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-lg" onclick="getStarted('student')">
+                            <svg class="icon" style="display: inline; vertical-align: middle; margin-right: 0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                            </svg>
+                            I'm a Student
+                        </button>
+                        <button class="btn btn-outline btn-lg" onclick="getStarted('company')">
+                            <svg class="icon" style="display: inline; vertical-align: middle; margin-right: 0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            I'm a Company
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800" alt="Professional partnership" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div class="stat-value">2,500+</div>
+                    <div class="stat-label">Active Opportunities</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                    <div class="stat-value">15,000+</div>
+                    <div class="stat-label">Students Placed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <div class="stat-value">1,200+</div>
+                    <div class="stat-label">Partner Companies</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How AttachLink Works</h2>
+                    <p>Simple steps to connect students with opportunities</p>
+                </div>
+                
+                <div class="how-grid">
+                    <!-- For Students -->
+                    <div class="how-section">
+                        <h3>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                            </svg>
+                            For Students
+                        </h3>
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Create Your Profile</h4>
+                                    <p>Upload your CV and showcase your skills, education, and experience.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Browse Opportunities</h4>
+                                    <p>Search and filter internships and attachments by location, field, and company.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Apply & Connect</h4>
+                                    <p>Apply directly to companies and track your application status.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- For Companies -->
+                    <div class="how-section">
+                        <h3>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            For Companies
+                        </h3>
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Post Opportunities</h4>
+                                    <p>Create detailed job postings for internships and attachment positions.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Review Applications</h4>
+                                    <p>Browse student profiles and review applications from qualified candidates.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Hire Top Talent</h4>
+                                    <p>Connect with students and build your future workforce.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Opportunities -->
+        <section class="opportunities">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Opportunities</h2>
+                    <p>Latest internships and attachments from top companies</p>
+                </div>
+                
+                <div class="opportunities-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="opportunity-header">
+                                <span class="badge badge-primary">Internship</span>
+                                <span style="font-size: 0.875rem; color: var(--text-gray);">2 days ago</span>
+                            </div>
+                            <h3 class="card-title">Software Development Intern</h3>
+                            <p class="card-description" style="color: var(--primary-color); font-weight: 600;">TechCorp Solutions</p>
+                        </div>
+                        <div class="card-content">
+                            <div class="opportunity-meta">
+                                <div>📍 Nairobi, Kenya</div>
+                                <div>⏰ Duration: 3 months</div>
+                            </div>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">View Details</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="opportunity-header">
+                                <span class="badge">Attachment</span>
+                                <span style="font-size: 0.875rem; color: var(--text-gray);">1 week ago</span>
+                            </div>
+                            <h3 class="card-title">Marketing Assistant</h3>
+                            <p class="card-description" style="color: var(--primary-color); font-weight: 600;">Creative Agency Ltd</p>
+                        </div>
+                        <div class="card-content">
+                            <div class="opportunity-meta">
+                                <div>📍 Mombasa, Kenya</div>
+                                <div>⏰ Duration: 6 months</div>
+                            </div>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">View Details</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="opportunity-header">
+                                <span class="badge badge-primary">Internship</span>
+                                <span style="font-size: 0.875rem; color: var(--text-gray);">3 days ago</span>
+                            </div>
+                            <h3 class="card-title">Data Analyst Trainee</h3>
+                            <p class="card-description" style="color: var(--primary-color); font-weight: 600;">FinanceHub Kenya</p>
+                        </div>
+                        <div class="card-content">
+                            <div class="opportunity-meta">
+                                <div>📍 Kisumu, Kenya</div>
+                                <div>⏰ Duration: 4 months</div>
+                            </div>
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center" style="margin-top: 3rem;">
+                    <button class="btn btn-primary btn-lg">
+                        <svg class="icon" style="display: inline; vertical-align: middle; margin-right: 0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        View All Opportunities
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Company Dashboard -->
+    <main id="company-dashboard" class="hidden dashboard">
+        <div class="dashboard-header">
+            <h1>Company Dashboard</h1>
+            <p>Manage your job postings and review applications</p>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="stats-dashboard">
+            <div class="card">
+                <div class="card-content">
+                    <div class="stat-card">
+                        <div class="stat-card-info">
+                            <p>Active Jobs</p>
+                            <p>2</p>
+                        </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="stat-card">
+                        <div class="stat-card-info">
+                            <p>Total Applications</p>
+                            <p>43</p>
+                        </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="stat-card">
+                        <div class="stat-card-info">
+                            <p>Shortlisted</p>
+                            <p>12</p>
+                        </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <div class="stat-card">
+                        <div class="stat-card-info">
+                            <p>Hired</p>
+                            <p>3</p>
+                        </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tabs-list">
+                <button class="tab-trigger active" onclick="switchCompanyTab('jobs')">Job Postings</button>
+                <button class="tab-trigger" onclick="switchCompanyTab('applications')">Applications</button>
+            </div>
+
+            <!-- Jobs Tab -->
+            <div id="company-jobs-tab" class="tab-content active">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 style="font-size: 1.25rem; font-weight: 600;">Your Job Postings</h2>
+                    <button class="btn btn-primary" onclick="toggleJobForm()">
+                        <svg class="icon-sm" style="display: inline; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        Post New Job
+                    </button>
+                </div>
+
+                <!-- Job Form -->
+                <div id="job-form-card" class="card hidden" style="margin-bottom: 1.5rem;">
+                    <div class="card-header">
+                        <h3 class="card-title">Post a New Opportunity</h3>
+                        <p class="card-description">Create a new internship or attachment opportunity</p>
+                    </div>
+                    <div class="card-content">
+                        <form onsubmit="submitJob(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="job-title">Job Title</label>
+                                    <input type="text" id="job-title" placeholder="e.g. Software Development Intern" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="job-type">Type</label>
+                                    <select id="job-type" required>
+                                        <option value="">Select type</option>
+                                        <option value="internship">Internship</option>
+                                        <option value="attachment">Attachment</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="job-location">Location</label>
+                                    <input type="text" id="job-location" placeholder="e.g. Nairobi, Kenya" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="job-duration">Duration</label>
+                                    <input type="text" id="job-duration" placeholder="e.g. 3 months" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="job-description">Job Description</label>
+                                <textarea id="job-description" rows="4" placeholder="Describe the role, responsibilities, and what the student will learn..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="job-requirements">Requirements</label>
+                                <textarea id="job-requirements" rows="3" placeholder="List the required skills, education level, and qualifications..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="job-deadline">Application Deadline</label>
+                                <input type="date" id="job-deadline" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Post Job</button>
+                                <button type="button" class="btn btn-outline" onclick="toggleJobForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Posted Jobs -->
+                <div class="job-list">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>Software Development Intern</h3>
+                                        <span class="badge badge-primary">Internship</span>
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                    <div class="job-meta">
+                                        <div>📍 Nairobi, Kenya</div>
+                                        <div>Deadline: 2024-11-15</div>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">25</p>
+                                    <p style="font-size: 0.875rem; color: var(--text-gray);">Applications</p>
+                                    <button class="btn btn-outline btn-sm" style="margin-top: 0.5rem;">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>Marketing Assistant</h3>
+                                        <span class="badge">Attachment</span>
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                    <div class="job-meta">
+                                        <div>📍 Mombasa, Kenya</div>
+                                        <div>Deadline: 2024-11-30</div>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">18</p>
+                                    <p style="font-size: 0.875rem; color: var(--text-gray);">Applications</p>
+                                    <button class="btn btn-outline btn-sm" style="margin-top: 0.5rem;">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Applications Tab -->
+            <div id="company-applications-tab" class="tab-content">
+                <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Recent Applications</h2>
+                
+                <div class="job-list">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>Sarah Wanjiku</h3>
+                                        <span class="badge">Under Review</span>
+                                    </div>
+                                    <div class="job-meta">
+                                        <div>Applied for: Software Development Intern</div>
+                                        <div>Applied on: 2024-10-28</div>
+                                    </div>
+                                    <div class="skills-list">
+                                        <span class="badge badge-outline">React</span>
+                                        <span class="badge badge-outline">JavaScript</span>
+                                        <span class="badge badge-outline">Python</span>
+                                    </div>
+                                </div>
+                                <div class="job-actions">
+                                    <button class="btn btn-outline btn-sm">View CV</button>
+                                    <button class="btn btn-primary btn-sm">Contact</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>John Kimani</h3>
+                                        <span class="badge badge-primary">Shortlisted</span>
+                                    </div>
+                                    <div class="job-meta">
+                                        <div>Applied for: Marketing Assistant</div>
+                                        <div>Applied on: 2024-10-27</div>
+                                    </div>
+                                    <div class="skills-list">
+                                        <span class="badge badge-outline">Digital Marketing</span>
+                                        <span class="badge badge-outline">Content Creation</span>
+                                        <span class="badge badge-outline">Analytics</span>
+                                    </div>
+                                </div>
+                                <div class="job-actions">
+                                    <button class="btn btn-outline btn-sm">View CV</button>
+                                    <button class="btn btn-primary btn-sm">Contact</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>Grace Akinyi</h3>
+                                        <span class="badge badge-outline">New</span>
+                                    </div>
+                                    <div class="job-meta">
+                                        <div>Applied for: Software Development Intern</div>
+                                        <div>Applied on: 2024-10-26</div>
+                                    </div>
+                                    <div class="skills-list">
+                                        <span class="badge badge-outline">Java</span>
+                                        <span class="badge badge-outline">Spring Boot</span>
+                                        <span class="badge badge-outline">Database Design</span>
+                                    </div>
+                                </div>
+                                <div class="job-actions">
+                                    <button class="btn btn-outline btn-sm">View CV</button>
+                                    <button class="btn btn-primary btn-sm">Contact</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Student Dashboard -->
+    <main id="student-dashboard" class="hidden dashboard">
+        <div class="dashboard-header">
+            <h1>Student Dashboard</h1>
+            <p>Manage your profile and track your applications</p>
+        </div>
+
+        <!-- Profile Completeness Alert -->
+        <div class="card alert-card" style="margin-bottom: 1.5rem;">
+            <div class="card-content">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 style="font-weight: 600; margin-bottom: 0.25rem;">Complete Your Profile</h3>
+                        <p style="font-size: 0.875rem; color: var(--text-gray);">Your profile is 85% complete</p>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="progress-bar" style="width: 8rem; margin-bottom: 0.5rem;">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                        <button class="btn btn-outline btn-sm" onclick="switchStudentTab('profile')">
+                            <svg class="icon-sm" style="display: inline; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                            Edit Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tabs-list">
+                <button class="tab-trigger active" onclick="switchStudentTab('jobs')">Browse Jobs</button>
+                <button class="tab-trigger" onclick="switchStudentTab('applications')">My Applications</button>
+                <button class="tab-trigger" onclick="switchStudentTab('profile')">Profile</button>
+            </div>
+
+            <!-- Browse Jobs Tab -->
+            <div id="student-jobs-tab" class="tab-content active">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 style="font-size: 1.25rem; font-weight: 600;">Available Opportunities</h2>
+                    <div class="flex gap-2">
+                        <input type="text" placeholder="Search jobs..." style="width: 16rem;">
+                        <button class="btn btn-outline">
+                            <svg class="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="job-list">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>UI/UX Design Intern</h3>
+                                        <span class="badge badge-primary">Internship</span>
+                                    </div>
+                                    <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">Design Studio Kenya</p>
+                                    <div class="job-meta">
+                                        <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                            <svg class="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            Nairobi, Kenya
+                                        </div>
+                                        <div>⏰ 4 months</div>
+                                        <div>📅 Deadline: 2024-11-20</div>
+                                    </div>
+                                    <div class="skills-list">
+                                        <span class="badge badge-outline">Design Tools</span>
+                                        <span class="badge badge-outline">Creative Thinking</span>
+                                        <span class="badge badge-outline">Portfolio</span>
+                                    </div>
+                                </div>
+                                <div class="job-actions">
+                                    <button class="btn btn-outline btn-sm">View Details</button>
+                                    <button class="btn btn-primary btn-sm">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>Accounting Assistant</h3>
+                                        <span class="badge">Attachment</span>
+                                    </div>
+                                    <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">Audit Firm Ltd</p>
+                                    <div class="job-meta">
+                                        <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                            <svg class="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            Eldoret, Kenya
+                                        </div>
+                                        <div>⏰ 6 months</div>
+                                        <div>📅 Deadline: 2024-11-25</div>
+                                    </div>
+                                    <div class="skills-list">
+                                        <span class="badge badge-outline">Accounting Principles</span>
+                                        <span class="badge badge-outline">Excel</span>
+                                        <span class="badge badge-outline">Attention to Detail</span>
+                                    </div>
+                                </div>
+                                <div class="job-actions">
+                                    <button class="btn btn-outline btn-sm">View Details</button>
+                                    <button class="btn btn-primary btn-sm">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>Network Administrator Trainee</h3>
+                                        <span class="badge badge-primary">Internship</span>
+                                    </div>
+                                    <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">IT Solutions Kenya</p>
+                                    <div class="job-meta">
+                                        <div style="display: flex; align-items: center; gap: 0.25rem;">
+                                            <svg class="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            Nakuru, Kenya
+                                        </div>
+                                        <div>⏰ 3 months</div>
+                                        <div>📅 Deadline: 2024-11-30</div>
+                                    </div>
+                                    <div class="skills-list">
+                                        <span class="badge badge-outline">Networking</span>
+                                        <span class="badge badge-outline">Linux</span>
+                                        <span class="badge badge-outline">Hardware Knowledge</span>
+                                    </div>
+                                </div>
+                                <div class="job-actions">
+                                    <button class="btn btn-outline btn-sm">View Details</button>
+                                    <button class="btn btn-primary btn-sm">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Applications Tab -->
+            <div id="student-applications-tab" class="tab-content">
+                <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">My Applications</h2>
+                
+                <div class="job-list">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>Software Development Intern</h3>
+                                        <span class="badge badge-primary">Internship</span>
+                                        <span class="badge">Under Review</span>
+                                    </div>
+                                    <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">TechCorp Solutions</p>
+                                    <div class="job-meta">
+                                        <div>📍 Nairobi, Kenya</div>
+                                        <div>📅 Applied: 2024-10-25</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline btn-sm">View Application</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>Data Analyst Trainee</h3>
+                                        <span class="badge badge-primary">Internship</span>
+                                        <span class="badge badge-primary">Shortlisted</span>
+                                    </div>
+                                    <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">FinanceHub Kenya</p>
+                                    <div class="job-meta">
+                                        <div>📍 Kisumu, Kenya</div>
+                                        <div>📅 Applied: 2024-10-20</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline btn-sm">View Application</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="job-card">
+                                <div class="job-info">
+                                    <div class="job-header">
+                                        <h3>Marketing Assistant</h3>
+                                        <span class="badge">Attachment</span>
+                                        <span class="badge badge-danger">Rejected</span>
+                                    </div>
+                                    <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">Creative Agency Ltd</p>
+                                    <div class="job-meta">
+                                        <div>📍 Mombasa, Kenya</div>
+                                        <div>📅 Applied: 2024-10-18</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline btn-sm">View Application</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Tab -->
+            <div id="student-profile-tab" class="tab-content">
+                <div class="flex justify-between items-center mb-3">
+                    <h2 style="font-size: 1.25rem; font-weight: 600;">My Profile</h2>
+                    <button class="btn btn-primary" onclick="toggleProfileForm()">
+                        <svg class="icon-sm" style="display: inline; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                        </svg>
+                        Edit Profile
+                    </button>
+                </div>
+
+                <!-- Edit Profile Form -->
+                <div id="profile-edit-form" class="card hidden" style="margin-bottom: 1.5rem;">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit Profile</h3>
+                        <p class="card-description">Update your information to attract employers</p>
+                    </div>
+                    <div class="card-content">
+                        <form onsubmit="submitProfile(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-name">Full Name</label>
+                                    <input type="text" id="profile-name" value="John Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">Email</label>
+                                    <input type="email" id="profile-email" value="john.doe@email.com" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-phone">Phone</label>
+                                    <input type="tel" id="profile-phone" value="+254 700 123456" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-university">University</label>
+                                    <input type="text" id="profile-university" value="University of Nairobi" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-course">Course of Study</label>
+                                    <input type="text" id="profile-course" value="Computer Science" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-year">Year of Study</label>
+                                    <input type="text" id="profile-year" value="3rd Year" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-bio">Bio</label>
+                                <textarea id="profile-bio" rows="4" placeholder="Tell employers about yourself, your interests, and career goals...">Passionate computer science student with experience in web development and data analysis.</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="profile-skills">Skills (comma separated)</label>
+                                <input type="text" id="profile-skills" value="JavaScript, Python, React, SQL" placeholder="e.g. JavaScript, Python, Communication, Project Management">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                <button type="button" class="btn btn-outline" onclick="toggleProfileForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Profile View -->
+                <div id="profile-view" class="profile-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Profile Information</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="profile-info">
+                                <div class="profile-field">
+                                    <label>Full Name</label>
+                                    <p>John Doe</p>
+                                </div>
+                                <div class="profile-field">
+                                    <label>Email</label>
+                                    <p>john.doe@email.com</p>
+                                </div>
+                                <div class="profile-field">
+                                    <label>Phone</label>
+                                    <p>+254 700 123456</p>
+                                </div>
+                                <div class="profile-field">
+                                    <label>University</label>
+                                    <p>University of Nairobi</p>
+                                </div>
+                                <div class="profile-field">
+                                    <label>Course</label>
+                                    <p>Computer Science</p>
+                                </div>
+                                <div class="profile-field">
+                                    <label>Year</label>
+                                    <p>3rd Year</p>
+                                </div>
+                            </div>
+                            <div class="profile-field" style="grid-column: 1 / -1;">
+                                <label>Bio</label>
+                                <p>Passionate computer science student with experience in web development and data analysis.</p>
+                            </div>
+                            <div class="profile-field" style="grid-column: 1 / -1;">
+                                <label>Skills</label>
+                                <div class="skills-list" style="margin-top: 0.5rem;">
+                                    <span class="badge">JavaScript</span>
+                                    <span class="badge">Python</span>
+                                    <span class="badge">React</span>
+                                    <span class="badge">SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">CV & Documents</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="upload-area">
+                                <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                </svg>
+                                <p style="font-size: 0.875rem; color: var(--text-gray); margin-bottom: 1rem;">Upload your CV</p>
+                                <button class="btn btn-outline btn-sm">
+                                    <svg class="icon-sm" style="display: inline; vertical-align: middle; margin-right: 0.25rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                    </svg>
+                                    Choose File
+                                </button>
+                            </div>
+                            <div style="font-size: 0.875rem; color: var(--text-gray); margin-top: 1rem;">
+                                <p>Supported formats: PDF, DOC, DOCX</p>
+                                <p>Max file size: 5MB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // State management
+        let currentPage = 'home';
+        let currentTheme = 'light';
+        let userType = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load theme from localStorage
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            if (savedTheme === 'dark') {
+                toggleTheme();
+            }
+        });
+
+        // Theme Toggle
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.classList.toggle('dark');
+            
+            // Toggle icons
+            document.getElementById('theme-icon-light').classList.toggle('hidden');
+            document.getElementById('theme-icon-dark').classList.toggle('hidden');
+            
+            // Save to localStorage
+            localStorage.setItem('theme', currentTheme);
+        }
+
+        // Page Navigation
+        function showPage(page) {
+            // Update nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.tab === page) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Show/hide pages
+            document.getElementById('landing-page').classList.toggle('hidden', page !== 'home');
+            document.getElementById('company-dashboard').classList.toggle('hidden', page !== 'companies' || userType !== 'company');
+            document.getElementById('student-dashboard').classList.toggle('hidden', page !== 'students' || userType !== 'student');
+
+            // If user clicks on companies/students without being logged in, show landing page
+            if ((page === 'companies' && userType !== 'company') || (page === 'students' && userType !== 'student')) {
+                document.getElementById('landing-page').classList.remove('hidden');
+            }
+
+            currentPage = page;
+        }
+
+        // Authentication
+        function login(type) {
+            userType = type;
+            document.getElementById('auth-buttons').classList.add('hidden');
+            document.getElementById('user-badge').classList.remove('hidden');
+            document.getElementById('user-type-label').textContent = type === 'company' ? 'Company' : 'Student';
+            
+            if (type === 'company') {
+                showPage('companies');
+                document.getElementById('company-dashboard').classList.remove('hidden');
+                document.getElementById('landing-page').classList.add('hidden');
+            } else {
+                showPage('students');
+                document.getElementById('student-dashboard').classList.remove('hidden');
+                document.getElementById('landing-page').classList.add('hidden');
+            }
+        }
+
+        function logout() {
+            userType = null;
+            document.getElementById('auth-buttons').classList.remove('hidden');
+            document.getElementById('user-badge').classList.add('hidden');
+            showPage('home');
+        }
+
+        function getStarted(type) {
+            login(type);
+        }
+
+        // Company Dashboard Tabs
+        function switchCompanyTab(tab) {
+            document.querySelectorAll('#company-dashboard .tab-trigger').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('#company-dashboard .tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            event.target.classList.add('active');
+            document.getElementById(`company-${tab}-tab`).classList.add('active');
+        }
+
+        // Student Dashboard Tabs
+        function switchStudentTab(tab) {
+            document.querySelectorAll('#student-dashboard .tab-trigger').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('#student-dashboard .tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            event.target.classList.add('active');
+            document.getElementById(`student-${tab}-tab`).classList.add('active');
+        }
+
+        // Toggle Job Form
+        function toggleJobForm() {
+            document.getElementById('job-form-card').classList.toggle('hidden');
+        }
+
+        // Submit Job
+        function submitJob(event) {
+            event.preventDefault();
+            alert('Job posted successfully! (This is a demo)');
+            toggleJobForm();
+            // Reset form
+            event.target.reset();
+        }
+
+        // Toggle Profile Form
+        function toggleProfileForm() {
+            document.getElementById('profile-edit-form').classList.toggle('hidden');
+            document.getElementById('profile-view').classList.toggle('hidden');
+        }
+
+        // Submit Profile
+        function submitProfile(event) {
+            event.preventDefault();
+            alert('Profile updated successfully! (This is a demo)');
+            toggleProfileForm();
+        }
+    </script>
+</body>
+</html>
